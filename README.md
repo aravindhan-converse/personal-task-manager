@@ -16,3 +16,14 @@ Set up DB with seed data
 Start Sever - 
 
       rails server
+
+
+Pending Items:
+
+      1. Dashboard
+
+      2. Filters dropdowns
+
+      3. Pagination not working along with table
+
+      4. Profile Papge
