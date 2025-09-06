@@ -4,6 +4,14 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
+    if params[:query].present?
+      @tasks = @tasks.where("title LIKE ?", "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -25,7 +33,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: "Task was successfully created." }
+        format.html { redirect_to tasks_path, notice: "Task was successfully created." }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +46,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task was successfully updated.", status: :see_other }
+        format.html { redirect_to tasks_path, notice: "Task was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }

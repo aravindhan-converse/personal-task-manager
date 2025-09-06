@@ -21,6 +21,8 @@
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application" %>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
   </head>
 
@@ -31,5 +33,25 @@
       <%= yield %>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script>
+        function searchInput() {
+          let text = document.getElementById("search-input").value;
+          console.log(`changed values:: ${text}`);
+          $.ajax({
+            url: '/tasks',
+            type: 'GET',
+            dataType: 'script',
+            data: {
+              query: text,
+            },
+            success: function(response) {
+              console.log('Success:', response);
+            },
+            error: function(xhr, status, error) {
+              console.error('Error:', error);
+            }
+          });
+        }
+      </script>
   </body>
 </html>
