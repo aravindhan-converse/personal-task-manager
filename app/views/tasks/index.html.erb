@@ -45,6 +45,9 @@
             <%= render partial: 'task', tasks: @tasks %>
           </tbody>
       </table>
+      <div class="mt-4 px-4 mb-4">
+        <%= will_paginate @tasks %>
+      </div>
     <% else %>
       <p class="text-center my-10">No tasks found.</p>
     <% end %>

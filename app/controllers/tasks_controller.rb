@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     if params[:query].present?
       @tasks = @tasks.where("title LIKE ?", "%#{params[:query]}%")
     end
