@@ -45,6 +45,9 @@ gem "thruster", require: false
 gem 'devise', '~> 4.9', '>= 4.9.4'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 4.0'
+gem "chartkick"
+gem "groupdate"
+gem 'highcharts-rails'
 
 
 group :development, :test do

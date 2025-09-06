@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby Version - ruby 3.2.2
 
-Things you may want to cover:
+Run -
+      bundle install
 
-* Ruby version
+Set up DB with seed data
 
-* System dependencies
+      rails db:create
 
-* Configuration
+      rails db:migrate
 
-* Database creation
+      rails db:seed
 
-* Database initialization
+Start Sever - 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+      rails server

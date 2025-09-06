@@ -26,6 +26,14 @@ end
                         user_id: 1)
 end
 
+10.times do |i|
+  Task.find_or_create_by(title: "Task No 00#{i + 1}",
+                        description: "This is a description for Task #{i + 1}.",
+                        due_date: Date.today + 2.days,
+                        category: "personal",
+                        user_id: 2)
+end
+
 puts "Finished creating tasks."
 
 puts "Seed data created successfully!"
